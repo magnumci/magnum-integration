@@ -15,6 +15,18 @@ module Magnum::Integration
       format_repository(client.repository(id))
     end
 
+    def deploy_keys(repo)
+      client.deploy_keys(repo)
+    end
+
+    def add_deploy_key(repo, title, key)
+      client.add_deploy_key(repo, title, key)
+    end
+
+    def remove_deploy_key(repo, key)
+      client.remove_deploy_key(repo, key)
+    end
+
     private
 
     def client
