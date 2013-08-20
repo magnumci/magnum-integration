@@ -38,7 +38,8 @@ module Magnum::Integration
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
-        source_url:  repo.ssh_url
+        source_url:  repo.ssh_url,
+        private:     repo.private
       }
     end
   end
