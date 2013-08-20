@@ -1,3 +1,5 @@
+require "octokit"
+
 module Magnum::Integration
   class Github < Base
     def initialize(oauth_token)
@@ -15,7 +17,7 @@ module Magnum::Integration
     private
 
     def client
-      @client ||= Octokit::Client.new(login: "me", oauth_token: @access_token)
+      @client ||= Octokit::Client.new(login: "me", oauth_token: @oauth_token)
     end
 
     def format_repository(repo)
