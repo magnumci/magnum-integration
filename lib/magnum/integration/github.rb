@@ -7,7 +7,8 @@ module Magnum::Integration
     end
 
     def repositories
-      client.repositories.map { |r| format_repository(r) }
+      resp = client.repositories(nil, sort: "pushed", direction: "desc")
+      resp.map { |r| format_repository(r) }
     end
 
     def repository(id)
