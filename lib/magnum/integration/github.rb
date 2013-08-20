@@ -11,7 +11,7 @@ module Magnum::Integration
     end
 
     def repository(id)
-      client.repository(id)
+      format_repository(client.repository(id))
     end
 
     private
