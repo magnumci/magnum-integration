@@ -47,6 +47,7 @@ api.delete_deploy_key("username/repo", 1234)
 api.hooks
 api.create_hook("username/repo", "http://myurl.com/push")
 api.delete_hook("username/repo", 1234)
+```
 
 ## Testing
 
