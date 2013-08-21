@@ -24,6 +24,21 @@ Or install it yourself as:
 gem install magnum-integration
 ```
 
+## Overview
+
+This library provides a unified way to manage repositories hooks and deploy keys.
+
+Integration has the following methods:
+
+- `repositories`
+- `repository`
+- `deploy_keys`
+- `create_deploy_key`
+- `delete_deploy_key`
+- `hooks`
+- `create_hook`
+- `delete_hook`
+
 ## Usage
 
 Get list of repositories from Github:
