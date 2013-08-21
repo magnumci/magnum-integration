@@ -1,4 +1,5 @@
 require "gitlab"
+require "magnum/integration/ext/gitlab"
 
 module Magnum::Integration
   class Gitlab < Base
@@ -24,6 +25,22 @@ module Magnum::Integration
 
     def delete_hook(repo, id)
       client.delete_project_hook(repo, id)
+    end
+
+    def deploy_keys(repo)
+      client.deploy_keys(repo)
+    end
+
+    def deploy_key(repo, id)
+      client.deploy_key(repo, id)
+    end
+
+    def create_deploy_key(repo, title, key)
+      client.create_deploy_key(repo, title, key)
+    end
+
+    def delete_deploy_key(repo, id)
+      client.delete_deploy_key(repo, id)
     end
 
     private
