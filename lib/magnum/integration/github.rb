@@ -11,20 +11,32 @@ module Magnum::Integration
       resp.map { |r| format_repository(r) }
     end
 
-    def repository(id)
-      format_repository(client.repository(id))
+    def repository(repo)
+      format_repository(client.repository(repo))
     end
 
     def deploy_keys(repo)
       client.deploy_keys(repo)
     end
 
-    def add_deploy_key(repo, title, key)
+    def create_deploy_key(repo, title, key)
       client.add_deploy_key(repo, title, key)
     end
 
-    def remove_deploy_key(repo, key)
+    def delete_deploy_key(repo, key)
       client.remove_deploy_key(repo, key)
+    end
+
+    def hooks(repo)
+      client.hooks(repo)
+    end
+
+    def create_hook(repo, url)
+      client.create_hook(repo, "web", url: url)
+    end
+
+    def delete_hook(repo, id)
+      client.remove_hook(repo, id)
     end
 
     private
