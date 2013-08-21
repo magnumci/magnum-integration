@@ -7,11 +7,11 @@ module Magnum::Integration
     end
 
     def repositories
-      client.projects.map { |r| format_repository(r) }
+      client.projects.map { |r| init_repository(r) }
     end
 
     def repository(id)
-      format_repository(client.project(id))
+      init_repository(client.project(id))
     end
 
     def hooks(repo)
@@ -35,14 +35,14 @@ module Magnum::Integration
       )
     end
 
-    def format_repository(repo)
-      {
+    def init_repository(repo)
+      Magnum::Integration::Repository.new(
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
         source_url:  repo.ssh_url_to_repo,
         private:     !repo.public
-      }
+      )
     end
   end
 end

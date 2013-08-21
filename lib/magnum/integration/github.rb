@@ -8,11 +8,11 @@ module Magnum::Integration
 
     def repositories
       resp = client.repositories(nil, sort: "pushed", direction: "desc")
-      resp.map { |r| format_repository(r) }
+      resp.map { |r| init_repository(r) }
     end
 
     def repository(repo)
-      format_repository(client.repository(repo))
+      init_repository(client.repository(repo))
     end
 
     def deploy_keys(repo)
@@ -45,14 +45,14 @@ module Magnum::Integration
       @client ||= Octokit::Client.new(login: "me", oauth_token: @oauth_token)
     end
 
-    def format_repository(repo)
-      {
+    def init_repository(repo)
+      Magnum::Integration::Repository.new(
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
         source_url:  repo.ssh_url,
         private:     repo.private
-      }
+      )
     end
   end
 end
