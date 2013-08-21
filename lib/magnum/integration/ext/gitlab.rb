@@ -7,6 +7,7 @@ module Gitlab::Client::Projects
     get("/projects/#{project}/keys/id")
   end
 
+  # Not functional yet. Bug: https://github.com/gitlabhq/gitlabhq/issues/4241
   def create_deploy_key(project, title, key)
     post("/projects/#{project}/keys", title: title, key: key)
   end
