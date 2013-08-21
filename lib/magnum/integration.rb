@@ -7,6 +7,5 @@ module Magnum
     autoload :Github,     "magnum/integration/github"
     autoload :Bitbucket,  "magnum/integration/bitbucket"
     autoload :Gitlab,     "magnum/integration/gitlab"
-    autoload :Beanstalk,  "magnum/integration/beanstalk"
   end
 end
