@@ -3,8 +3,9 @@ require "magnum/integration/ext/gitlab"
 
 module Magnum::Integration
   class Gitlab < Base
-    def initialize(private_token)
+    def initialize(private_token, endpoint=nil)
       @private_token = private_token
+      @endpoint ||= "https://gitlab.com/api/v3"
     end
 
     def repositories
@@ -47,7 +48,7 @@ module Magnum::Integration
 
     def client
       @client ||= ::Gitlab::Client.new(
-        endpoint: "https://gitlab.com/api/v3",
+        endpoint: @endpoint,
         private_token: @private_token
       )
     end
