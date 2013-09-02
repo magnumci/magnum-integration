@@ -9,7 +9,15 @@ module Magnum::Integration
       @description = options[:description]
       @source_url  = options[:source_url]
       @source_type = options[:source_type]
-      @private     = options[:private]
+      @private     = options[:private] == true
+    end
+
+    def private?
+      private == true
+    end
+
+    def git?
+      source_type == "git"
     end
   end
 end

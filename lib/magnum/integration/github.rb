@@ -3,6 +3,10 @@ require "octokit"
 module Magnum::Integration
   class Github < Base
     def initialize(access_token)
+      if access_token.to_s.empty?
+        raise ArgumentError, "Access token required"
+      end
+
       @access_token = access_token
     end
 
