@@ -41,7 +41,7 @@ Integration has the following methods:
 
 ## Usage
 
-Get list of repositories from Github:
+Github:
 
 ```ruby
 require "magnum/integration"
