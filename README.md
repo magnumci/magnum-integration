@@ -1,8 +1,8 @@
 # magnum-integration
 
-Unified integration with Github, Bitbucket, Gitlab. 
+Unified integration with Github, Bitbucket, Gitlab.
 
-Get repositories, create deploy keys.
+Get repositories, manage deploy keys and web hooks. 
 
 ## Installation
 
