@@ -2,8 +2,8 @@ require "octokit"
 
 module Magnum::Integration
   class Github < Base
-    def initialize(oauth_token)
-      @oauth_token = oauth_token
+    def initialize(access_token)
+      @access_token = access_token
     end
 
     def repositories
@@ -42,7 +42,7 @@ module Magnum::Integration
     private
 
     def client
-      @client ||= Octokit::Client.new(login: "me", oauth_token: @oauth_token)
+      @client ||= Octokit::Client.new(login: "me", access_token: @access_token)
     end
 
     def init_repository(repo)
@@ -50,7 +50,7 @@ module Magnum::Integration
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
-        source_url:  repo.ssh_url,
+        source_url:  "git@github.com:#{repo.full_name}.git",
         source_type: "git",
         private:     repo.private
       )
