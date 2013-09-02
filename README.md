@@ -16,7 +16,7 @@ And then execute:
 
 ```
 bundle
-````
+```
 
 Or install it yourself as:
 
@@ -62,6 +62,29 @@ api.delete_deploy_key("username/repo", 1234)
 api.hooks
 api.create_hook("username/repo", "http://myurl.com/push")
 api.delete_hook("username/repo", 1234)
+```
+
+Gitlab:
+
+```ruby
+require "magnum/integration"
+
+# Initialize client
+api = Magnum::Integration::Gitlab.new("private_token", "https://gitlab.com")
+
+# Repositories
+api.repositories
+api.repository(REPO_ID)
+
+# Deploy keys
+api.deploy_keys(REPO_ID)
+api.create_deploy_key(REPO_ID, "Magnum CI", "key contents")
+api.delete_deploy_key(REPO_ID, 1234)
+
+# Hooks
+api.hooks
+api.create_hook(REPO_ID, "http://myurl.com/push")
+api.delete_hook(REPO_ID, 1234)
 ```
 
 ## Testing
