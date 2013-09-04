@@ -15,7 +15,7 @@ module Magnum::Integration
         raise ArgumentError, "Gitlab url required"
       end
 
-      @client ||= ::Gitlab::Client.new(
+      @client = ::Gitlab::Client.new(
         endpoint: @endpoint,
         private_token: @private_token
       )
