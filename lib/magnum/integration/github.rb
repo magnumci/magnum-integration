@@ -7,7 +7,7 @@ module Magnum::Integration
         raise ArgumentError, "Access token required"
       end
 
-      @access_token = access_token
+      @client = Octokit::Client.new(login: "me", access_token: access_token)
     end
 
     def repositories
@@ -44,10 +44,6 @@ module Magnum::Integration
     end
 
     private
-
-    def client
-      @client ||= Octokit::Client.new(login: "me", access_token: @access_token)
-    end
 
     def init_repository(repo)
       Magnum::Integration::Repository.new(
