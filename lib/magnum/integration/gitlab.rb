@@ -6,6 +6,14 @@ module Magnum::Integration
     def initialize(private_token, endpoint=nil)
       @private_token = private_token
       @endpoint ||= "https://gitlab.com/api/v3"
+
+      if @private_token.nil?
+        raise ArgumentError, "Private token required"
+      end
+
+      if @endpoint.nil?
+        raise ArgumentError, "Gitlab url required"
+      end
     end
 
     def repositories
