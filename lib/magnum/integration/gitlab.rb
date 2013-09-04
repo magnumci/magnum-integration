@@ -14,6 +14,11 @@ module Magnum::Integration
       if @endpoint.nil?
         raise ArgumentError, "Gitlab url required"
       end
+
+      @client ||= ::Gitlab::Client.new(
+        endpoint: @endpoint,
+        private_token: @private_token
+      )
     end
 
     def repositories
@@ -53,13 +58,6 @@ module Magnum::Integration
     end
 
     private
-
-    def client
-      @client ||= ::Gitlab::Client.new(
-        endpoint: @endpoint,
-        private_token: @private_token
-      )
-    end
 
     def init_repository(repo)
       Magnum::Integration::Repository.new(

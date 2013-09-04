@@ -1,5 +1,9 @@
 module Magnum::Integration
   class Base
-    # TODO: Finalize structure
+    attr_reader :client
+
+    def method_missing(name, *args)
+      client.send(name, *args)
+    end
   end
 end
