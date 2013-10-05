@@ -5,7 +5,7 @@ module Magnum::Integration
   class Gitlab < Base
     def initialize(private_token, endpoint=nil)
       @private_token = private_token
-      @endpoint ||= "https://gitlab.com/api/v3"
+      @endpoint      = endpoint || "https://gitlab.com/api/v3"
 
       if @private_token.nil?
         raise ArgumentError, "Private token required"
