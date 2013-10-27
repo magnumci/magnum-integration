@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Magnum::Integration::VERSION
   spec.authors       = ["Dan Sosedoff"]
   spec.email         = ["dan.sosedoff@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Integrate with source code providers}
+  spec.summary       = %q{Integrate with source code providers}
+  spec.homepage      = "https://github.com/magnumci/magnum-integration"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
