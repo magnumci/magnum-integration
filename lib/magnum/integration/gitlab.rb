@@ -1,5 +1,4 @@
 require "gitlab"
-require "magnum/integration/ext/gitlab"
 
 module Magnum::Integration
   class Gitlab < Base
