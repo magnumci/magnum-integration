@@ -18,15 +18,15 @@ describe Magnum::Integration::Repository do
         id: "12345", 
         name: "foo/bar",
         description: "Foobar",
-        source_url: "git@github.com:/user/repo.git",
-        source_type: "git"
+        url: "git@github.com:/user/repo.git",
+        scm: "git"
       )
 
       expect(repo.id).to eq "12345"
       expect(repo.name).to eq "foo/bar"
       expect(repo.description).to eq "Foobar"
-      expect(repo.source_url).to eq "git@github.com:/user/repo.git"
-      expect(repo.source_type).to eq "git"
+      expect(repo.url).to eq "git@github.com:/user/repo.git"
+      expect(repo.scm).to eq "git"
     end
 
     it "is not private by default" do
@@ -49,12 +49,12 @@ describe Magnum::Integration::Repository do
 
   describe "#git?" do
     it "returns false if not git" do
-      repo.stub(:source_type) { "mercurial" }
+      repo.stub(:scm) { "mercurial" }
       expect(repo.git?).to eq false
     end
 
     it "returns true if source type is git" do
-      repo.stub(:source_type) { "git" }
+      repo.stub(:scm) { "git" }
       expect(repo.git?).to eq true
     end
   end

@@ -1,14 +1,14 @@
 module Magnum::Integration
   class Repository
     attr_reader :id, :name, :description, :private
-    attr_reader :source_url, :source_type
+    attr_reader :url, :scm
 
-    def initialize(options={})
+    def initialize(options = {})
       @id          = options[:id]
       @name        = options[:name]
       @description = options[:description]
-      @source_url  = options[:source_url]
-      @source_type = options[:source_type]
+      @scm         = options[:scm]
+      @url         = options[:url]
       @private     = options[:private] == true
     end
 
@@ -17,7 +17,7 @@ module Magnum::Integration
     end
 
     def git?
-      source_type == "git"
+      scm == "git"
     end
   end
 end
