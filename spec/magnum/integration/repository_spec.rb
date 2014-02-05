@@ -58,4 +58,27 @@ describe Magnum::Integration::Repository do
       expect(repo.git?).to eq true
     end
   end
+
+  describe "#to_hash" do
+    let(:repo) do
+      described_class.new(
+        id: "12345",
+        name: "foo/bar",
+        description: "Foobar",
+        url: "git@github.com:/user/repo.git",
+        scm: "git"
+      )
+    end
+
+    it "returns a hash" do
+      expect(repo.to_hash).to eq Hash(
+        id: "12345",
+        name: "foo/bar",
+        description: "Foobar",
+        url: "git@github.com:/user/repo.git",
+        scm: "git",
+        private: false
+      )
+    end
+  end
 end

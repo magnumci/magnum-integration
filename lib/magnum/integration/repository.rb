@@ -19,5 +19,16 @@ module Magnum::Integration
     def git?
       scm == "git"
     end
+
+    def to_hash
+      {
+        id: id,
+        name: name,
+        description: description,
+        url: url,
+        scm: scm,
+        private: private
+      }
+    end
   end
 end
