@@ -63,8 +63,8 @@ module Magnum::Integration
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
-        source_url:  repo.ssh_url_to_repo,
-        source_type: "git",
+        url:         repo.ssh_url_to_repo,
+        scm:         "git",
         private:     repo.public === false
       )
     end

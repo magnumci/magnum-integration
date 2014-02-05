@@ -50,8 +50,8 @@ module Magnum::Integration
         id:          repo.id,
         name:        repo.name,
         description: repo.description,
-        source_url:  "git@github.com:#{repo.full_name}.git",
-        source_type: "git",
+        url:         "git@github.com:#{repo.full_name}.git",
+        scm:         "git",
         private:     repo.private
       )
     end
