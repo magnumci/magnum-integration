@@ -7,4 +7,16 @@ RSpec::Core::RakeTask.new(:test) do |t|
   t.verbose = false
 end
 
+task :console do
+  $LOAD_PATH << "./lib"
+
+  require "irb"
+  require "irb/completion"
+  require "pp"
+  require "magnum/integration"
+  
+  ARGV.clear
+  IRB.start
+end
+
 task :default => :test
